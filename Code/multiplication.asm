@@ -11,12 +11,12 @@ main proc
    mov ah,1
    int 21h
    sub al,48
-   mov a,al
+   mov bl,al
    
    int 21h
    sub al,48
    
-   add al,a
+   mul bl
    aam   ;adjust ax after multiplication
    mov bx,ax 
    

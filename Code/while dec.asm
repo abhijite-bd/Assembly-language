@@ -7,18 +7,23 @@ main proc
   mov ax,@data
   mov ds,ax
 
-  mov cl,'A'
+  mov ah,1
+  int 21h
+  mov bl,al
+  
+  mov cl,bl
   
   while:
-  cmp cl,'Z'
-  jg exit:
+  cmp cl,'0' 
+  jl exit:
   
   mov ah,2
-  mov dl,cl  
+  mov dl,cl
   int 21h
-  inc cl
   
+  dec cl
   jmp while:
+  
 
   exit:
   mov ah,4ch
